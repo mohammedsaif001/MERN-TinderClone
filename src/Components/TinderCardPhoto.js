@@ -9,14 +9,21 @@ function TinderCardPhoto() {
     useEffect(() => {
       async function fetchData(){
           const req = await axios.get('/tinder/card')
-
           setpeople(req.data)
       }
-
       fetchData()
-    
     }, [])
+
     
+
+    // useEffect(() => {
+    //   fetch("/tinder/card")
+    //   .then((res) =>res.json)
+    //   .then((people) => setpeople(people.data))
+    // }, [])
+    
+
+    console.log(people)
 
     const swiped = (direction, nameToDelete) => {
         console.log("removing: " + nameToDelete);
@@ -40,7 +47,7 @@ function TinderCardPhoto() {
                         onCardLeftScreen={() => outOfFrame(person.name)}
                     >
                         <div
-                            style={{ backgroundImage: 'url(' + person.url + ')' }}
+                            style={{ backgroundImage: 'url(' + person.imgUrl + ')' }}
                             className="card"
                         >
 
